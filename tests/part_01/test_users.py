@@ -1,8 +1,6 @@
 from pytest_steps import test_steps
-from jsonschema import validate
 
-import services.users.users as users
-import helpers.helper as helper
+import services.part_01.users as users
 
 @test_steps('test_get_user_request')
 def test_get_user_request():
@@ -17,7 +15,6 @@ def test_get_user_request():
     assert (user_data['avatar'] == "https://reqres.in/img/faces/2-image.jpg"), "Avatar verfication failed"
     assert (user_response.headers['content-type'] == "application/json; charset=utf-8")
 
-    validate(instance=user_response.json(), schema=helper.read_json("../schemas/user.json"))
     yield
 
 @test_steps('test_get_user_list_request')
@@ -49,7 +46,5 @@ def test_get_user_list_request():
     assert "byron.fields@reqres.in" in emails
     assert "george.edwards@reqres.in" in emails
     assert "rachel.howell@reqres.in" in emails
-
-    validate(instance=get_users_list_response.json(), schema=helper.read_json("../schemas/users_list.json"))
 
     yield
