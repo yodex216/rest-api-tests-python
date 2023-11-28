@@ -19,6 +19,9 @@ jobs:
              pip install requests
              pip install pytest
              pip install pytest-steps
+             pip install jsonschema 
+             pip install pytest-xdist
+             pip install pytest-html
              cd ${{ github.workspace }}
              export PYTHONPATH=${PYTHONPATH}:${{ github.workspace }}
              cd tests/part_01
