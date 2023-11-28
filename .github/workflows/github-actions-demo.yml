@@ -5,5 +5,4 @@ jobs:
   Run-Tests:
     runs-on: ubuntu-latest
     steps:
-      - run: cd myenv/Scripts
-      - run: dir
+      - run: ls -al
