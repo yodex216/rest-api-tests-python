@@ -11,5 +11,5 @@ jobs:
       - name: List files
         run: |
              cd myenv/Scripts
-             activate
+             ./activate
         
