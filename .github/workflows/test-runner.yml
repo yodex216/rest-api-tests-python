@@ -27,6 +27,11 @@ jobs:
         uses: pmeier/pytest-results-action@v0.4.0
         with:
           path: results.xml
+
+      - name: Create test summary
+        uses: test-summary/action@dist
+        with:
+          paths: results.xml
         
       - name: Upload pytest test results
         uses: actions/upload-artifact@v3
