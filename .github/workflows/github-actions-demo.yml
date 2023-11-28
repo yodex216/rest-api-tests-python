@@ -8,6 +8,10 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.12
       - name: Run Tests
         run: |
              chmod +x -R ${{ github.workspace }}
@@ -15,7 +19,7 @@ jobs:
              cd ${{ github.workspace }}
              export PYTHONPATH=${PYTHONPATH}:${{ github.workspace }}
              cd tests/part_01
-             ./pytest -s test_users.py --junitxml=results.xml --html=report.html
+             pytest -s test_users.py --junitxml=results.xml --html=report.html
              
              
         
