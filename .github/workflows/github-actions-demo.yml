@@ -13,6 +13,7 @@ jobs:
              chmod +x -R ${{ github.workspace }}
              source myenv/Scripts/activate
              cd ${{ github.workspace }}
-             ls -al
+             export PYTHONPATH=%PYTHONPATH%;"${{ github.workspace }}"
+             
              
         
