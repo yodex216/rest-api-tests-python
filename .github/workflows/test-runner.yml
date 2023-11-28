@@ -16,17 +16,6 @@ jobs:
         run: |
              chmod +x -R ${{ github.workspace }}
              pip install --upgrade pip
-             pip install requests
-             pip install pytest
-             pip install pytest-steps
-             pip install jsonschema 
-             pip install pytest-xdist
-             pip install pytest-html
-             cd ${{ github.workspace }}
+             pip install -t requirements.txt
              export PYTHONPATH=${PYTHONPATH}:${{ github.workspace }}
-             cd tests/part_01
-             pytest -s test_users.py --junitxml=results.xml --html=report.html
-             
-             
-             
-        
+             pytest -s tests/part_01/test_users.py --junitxml=results.xml --html=report.html
