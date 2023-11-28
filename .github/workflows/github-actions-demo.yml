@@ -11,6 +11,5 @@ jobs:
       - name: List files
         run: |
              chmod +x -R ${{ github.workspace }}
-             cd myenv/Scripts
-             ./activate
+             source myenv/Scripts/activate
         
