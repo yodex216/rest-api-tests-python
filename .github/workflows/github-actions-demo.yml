@@ -14,6 +14,7 @@ jobs:
              source myenv/Scripts/activate
              cd ${{ github.workspace }}
              export PYTHONPATH=${PYTHONPATH}:${{ github.workspace }}
+             pytest -s tests/part_01/test_users.py --junitxml=results.xml --html=report.html
              
              
         
