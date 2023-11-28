@@ -9,6 +9,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
       - name: List files
-        run: cd myenv/Scripts
+        run: |
+             cd myenv/Scripts
              activate
         
