@@ -22,9 +22,12 @@ jobs:
       - name: Upload pytest test results
         uses: actions/upload-artifact@v3
         with:
-          name: pytest-results
-          path: results.xml
+          name: test-results
+          path: |
+                results.xml
+                report.html
+                assets
       - name: Download a single artifact
         uses: actions/download-artifact@v3
         with:
-          name: pytest-results
+          name: test-results
