@@ -16,6 +16,6 @@ jobs:
         run: |
              chmod +x -R ${{ github.workspace }}
              pip install --upgrade pip
-             pip install -t requirements.txt
+             pip install -r requirements.txt
              export PYTHONPATH=${PYTHONPATH}:${{ github.workspace }}
              pytest -s tests/part_01/test_users.py --junitxml=results.xml --html=report.html
