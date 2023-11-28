@@ -12,5 +12,5 @@ jobs:
         run: |
              chmod +x -R ${{ github.workspace }}
              cd myenv
-             .\Scripts\activate
+             ./Scripts/activate
         
