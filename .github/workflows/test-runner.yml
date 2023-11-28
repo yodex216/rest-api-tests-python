@@ -6,12 +6,15 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    
       - name: Checkout Repository
         uses: actions/checkout@v4
+        
       - name: Set up Python 3.12
         uses: actions/setup-python@v2
         with:
           python-version: 3.12
+          
       - name: Run Tests
         run: |
              chmod +x -R ${{ github.workspace }}
@@ -19,18 +22,30 @@ jobs:
              pip install -r requirements.txt
              export PYTHONPATH=${PYTHONPATH}:${{ github.workspace }}
              pytest -s tests/part_01/test_users.py --junitxml=results.xml --html=report.html
+             
       - name: pytest-results-actions
         uses: pmeier/pytest-results-action@v0.4.0
         with:
           path: results.xml
+          
+      - name: Test Report
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
+        with:
+          name: Python Test Run
+          path: results.xml 
+          reporter: java-junit
+          
       - name: Upload pytest test results
         uses: actions/upload-artifact@v3
+        if: success() || failure()
         with:
           name: test-results
           path: |
                 results.xml
                 report.html
                 assets
+                
       - name: Download a single artifact
         uses: actions/download-artifact@v3
         with:
