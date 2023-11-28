@@ -27,20 +27,10 @@ jobs:
         uses: pmeier/pytest-results-action@v0.4.0
         with:
           path: results.xml
-          
-      - name: Test Report
-        uses: dorny/test-reporter@v1
-        if: success() || failure()
-        with:
-          name: Python Test Run
-          path: results.xml 
-          reporter: jest-junit
 
       - name: Pytest summary
         uses: dariocurr/pytest-summary@v2
         
-
-      
       - name: Upload pytest test results
         uses: actions/upload-artifact@v3
         if: success() || failure()
