@@ -8,8 +8,11 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-      - name: List files
+      - name: Run Tests
         run: |
              chmod +x -R ${{ github.workspace }}
              source myenv/Scripts/activate
+             cd ${{ github.workspace }}
+             ls -al
+             
         
