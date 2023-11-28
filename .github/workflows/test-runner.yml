@@ -23,12 +23,12 @@ jobs:
              export PYTHONPATH=${PYTHONPATH}:${{ github.workspace }}
              pytest -s tests/part_01/test_users.py --junitxml=results.xml --html=report.html
 
-      - name: Create test summary
+      - name: Create Test Summary
         uses: test-summary/action@dist
         with:
           paths: results.xml
         
-      - name: Upload pytest test results
+      - name: Upload pytest Test Results
         uses: actions/upload-artifact@v3
         if: success() || failure()
         with:
@@ -38,7 +38,7 @@ jobs:
                 report.html
                 assets
                 
-      - name: Download a single artifact
+      - name: Download All Artifacts
         uses: actions/download-artifact@v3
         with:
           name: test-results
