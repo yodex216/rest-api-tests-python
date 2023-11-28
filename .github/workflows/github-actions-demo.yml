@@ -11,7 +11,7 @@ jobs:
       - name: Run Tests
         run: |
              chmod +x -R ${{ github.workspace }}
-             source myenv/Scripts/activate
+             . .myenv/Scripts/activate
              cd ${{ github.workspace }}
              export PYTHONPATH=${PYTHONPATH}:${{ github.workspace }}
              cd tests/part_01
