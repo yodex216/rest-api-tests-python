@@ -4,5 +4,10 @@ on: [push]
 jobs:
   Run-Tests:
     runs-on: ubuntu-latest
+    
     steps:
-      - run: ls -al
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: List files
+        run: ls -al
+        
