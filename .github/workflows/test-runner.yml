@@ -24,5 +24,7 @@ jobs:
         with:
           name: pytest-results
           path: results.xml
-      - name: Download all workflow run artifacts
+      - name: Download a single artifact
         uses: actions/download-artifact@v3
+        with:
+          name: pytest-results
