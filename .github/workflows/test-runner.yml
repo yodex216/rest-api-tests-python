@@ -38,8 +38,3 @@ jobs:
                 results.xml
                 report.html
                 assets
-                
-      #- name: Download All Artifacts
-      #  uses: actions/download-artifact@v3
-      #  with:
-      #    name: test-results
