@@ -8,6 +8,7 @@ on:
     inputs:
       testPath:
         description: 'Test Path'
+        default: part_01/test_users.py
         required: true
         type: string
   push:
