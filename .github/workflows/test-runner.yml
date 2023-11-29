@@ -2,13 +2,13 @@ name: Python Tests
 run-name: Rest API Python Tests
 
 on:
-  #push:
   workflow_dispatch:
     inputs:
-      environment:
+      test_path:
         type: string
-        default: DEV
+        default: part_01/test_users.py
         required: true
+  push:
   
 jobs:
   Run-Tests:
@@ -30,7 +30,7 @@ jobs:
              pip install --upgrade pip
              pip install -r requirements.txt
              export PYTHONPATH=${PYTHONPATH}:${{ github.workspace }}
-             pytest -s tests/part_01/test_users.py --junitxml=results.xml --html=report.html
+             pytest -s tests/${{ github.event.inputs.test_path }} --junitxml=results.xml --html=report.html
 
       - name: Create Test Summary
         uses: test-summary/action@dist
