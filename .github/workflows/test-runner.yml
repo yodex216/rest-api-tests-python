@@ -2,13 +2,13 @@ name: Python Tests
 run-name: Rest API Python Tests
 
 on:
+  push:
   workflow_dispatch:
     inputs:
       test_path:
         type: string
         default: part_01/test_users.py
         required: true
-  push:
   
 jobs:
   Run-Tests:
