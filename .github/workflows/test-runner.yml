@@ -2,7 +2,7 @@ name: Python Tests
 run-name: Rest API Python Tests
 
 on:
-  push:
+  #push:
   workflow_dispatch:
     inputs:
       environment:
